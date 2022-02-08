@@ -1,0 +1,133 @@
+<header id="home" class="header">
+    <!-- Navigation -->
+    {{>menu}}
+
+    <!-- Hero -->
+    <img src="./images/banner.png" alt="" class="hero-img" />
+
+    <div class="hero-content">
+        <h2><span class="discount">10% </span> de desconto!!</h2>
+        <h1>
+            <span>Ative</span>
+            <span>o seu modo otaku</span>
+            <h2>
+                <span class="discount">use o código</span>
+                <span>OTAKU10</span>
+            </h2>
+        </h1>
+
+        <a class="btn" href="https://otakushop.herokuapp.com/produtos">Compre Agora</a>
+    </div>
+</header>
+
+<!-- Main -->
+<main>
+    <section class="advert section">
+        <div class="advert-center container">
+            <div class="advert-box">
+                <div class="dotted">
+                    <div class="content">
+                        <h2>
+                            Seja <br /> um ninja
+                        </h2>
+                        <h4>de Konoha, Dattebayo!</h4>
+                    </div>
+                </div>
+                <img src="/images/advert1.png" alt="">
+
+            </div>
+
+            <div class="advert-box">
+                <div class="dotted">
+                    <div class="content">
+                        <h2>
+                            &nbsp;Seja <br /> o melhor
+                        </h2>
+                        <h4>espadachim do mundo</h4>
+                    </div>
+                </div>
+                <img src="/images/advert2.png" alt="">
+            </div>
+
+            <div class="advert-box">
+                <div class="dotted">
+                    <div class="content">
+                        <h2>
+                            Invoque <br /> Shenlong
+                        </h2>
+                        <h4>E salve a Terra!</h4>
+                    </div>
+                </div>
+                <img id="esfera" src="/images/advert3.png" alt="">
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured -->
+    <section class="section featured">
+        <div class="title">
+            <h1>Produtos em Destaque</h1>
+        </div>
+        <div class="product-center container">
+            {{#each destaques}}
+            <div class="product">
+                <div class="product-header">
+                    <img src={{path}} alt="">
+                    <ul class="icons">
+                        {{#if isSize}}
+                            <a href="https://otakushop.herokuapp.com/adicionar-produto/{{id}}/1/{{defaultSize}}">
+                                <span>
+                                    <i class="bx bx-shopping-bag"></i>
+                                </span>
+                             </a>
+                        {{else}}
+                            <a href="https://otakushop.herokuapp.com/adicionar-produto/{{id}}/1/0">
+                                <span>
+                                    <i class="bx bx-shopping-bag"></i>
+                                </span>
+                             </a>
+                        {{/if}}
+                        <a href="https://otakushop.herokuapp.com/detalhes/{{id}}">
+                            <span>
+                                <i class="bx bx-search"></i>
+                            </span>
+                        </a>
+                    </ul>
+                </div>
+                <div class="product-footer">
+                    <a href="#">
+                        <h3>{{name}}</h3>
+                    </a>
+                    <h4 class="price">R$ {{price}}</h4>
+                </div>
+            </div>
+            {{else}} {{/each}}
+        </div>
+    </section>
+    <!-- Brands -->
+    <section class="section">
+        <div class="brands-center container">
+            <div class="brand">
+                <img src="/images/brand1.png" alt="" />
+            </div>
+            <div class="brand">
+                <img src="/images/brand2.png" alt="" />
+            </div>
+            <div class="brand">
+                <img src="/images/brand3.png" alt="" />
+            </div>
+            <div class="brand">
+                <img src="/images/brand4.png" alt="" />
+            </div>
+            <div class="brand">
+                <img src="/images/brand5.png" alt="" />
+            </div>
+            <div class="brand">
+                <img src="/images/brand6.png" alt="" />
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+{{>rodape}}

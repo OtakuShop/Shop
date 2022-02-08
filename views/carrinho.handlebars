@@ -1,0 +1,236 @@
+{{>menu}}
+<div class="content-cart">
+  {{#if vazio}}
+    <div class="vazio">
+      <img src="/images/carrinho-vazio.png" alt="" />
+      <p>
+        Seu carrinho está vazio...
+      </p>
+    </div>
+  {{else}}
+    <h2>
+      Carrinho de Compras
+    </h2>
+    <div class="main-cart">
+      <div class="header-cart">
+        <span id="prd">
+          Produto
+        </span>
+        <span id="qtde">
+          Quantidade
+        </span>
+        <span id="pre">
+          Preço
+        </span>
+        <span id="sub">
+          Subtotal
+        </span>
+      </div>
+      {{#each data}}
+        <div class="produto" id="prod{{@index}}">
+          <div class="img-produto">
+            <img src="{{path}}" alt="" srcset="" />
+          </div>
+          <div class="info-produto">
+            <span>
+              Descrição: {{name}}
+            </span>
+            {{#if isSize}}
+              <div class="centralize">
+                <span class="tamanho">
+                  Tamanho:
+                  <div class="fk"id="{{@index}}">
+                    <div class="size click-size" id="div-size{{@index}}">
+                      <span id="size_cart{{id}}">
+                        {{size}}
+                      </span>
+                    </div>
+                  </div>
+                </span>
+                <div id="btns{{@index}}" class="sizes">
+                  {{#each sizes}}
+                    <div id="{{@index}}">
+                      <div class="size" id="{{id}}">
+                        <p id="btn_click_size" class="btn_size">
+                          {{item}}
+                        </p>
+                      </div>
+                    </div>
+                  {{/each}}
+                </div>
+              </div>
+            {{/if}}
+            {{{MaiorQue estoque 0}}}
+          </div>
+          <div class="infos">
+            <div id="{{id}}" class="alter-btn">
+              <i id="down{{@index}}" class="down fas fa-chevron-down"></i>
+              <div class="spand">
+                <span id="span{{@index}}">
+                  {{qtde}}
+                </span>
+              </div>
+              <i id="up{{@index}}" class="up fas fa-chevron-up"></i>
+            </div>
+          </div>
+          <div class="infos">
+            <span id="preco{{@index}}">
+              R$ {{price}}
+            </span>
+          </div>
+          <div class="info-sub">
+            <div class="subtotal">
+              <span class="spantotal" id="total{{@index}}">
+                R$ {{total}}
+              </span>
+            </div>
+          </div>
+          <div class="infotrash">
+            <span>
+              <i id="delete{{@index}}" class="delete-btn fas fa-trash-alt"></i>
+            </span>
+          </div>
+        </div>
+      {{/each}}
+      <div class="linha"></div>
+      <div class="btn-limpar-cart">
+        <button id="delete-all" type="button" class="delete-all button roxo m-">
+          <span class="button__text">
+            Limpar Carrinho
+          </span>
+          <span class="button__icon">
+            <i class="fas fa-cart-arrow-down"></i>
+          </span>
+        </button>
+      </div>
+      <div class="checkout">
+        <div class="checkout-info">
+          <div class="utils">
+            <div class="content-utils">
+              <div class="sub-utils">
+                <input
+                  id="inpcup"
+                  type="text"
+                  class="input-cep"
+                  placeholder="OTAKU30"
+                />
+                <button type="button" class="button roxo m-">
+                  <span id="btn_resgatar" class="button__text">
+                    Resgatar
+                  </span>
+                  <span class="button__icon">
+                    <i class="fas fa-ticket-alt"></i>
+                  </span>
+                </button>
+              </div>
+              <span id="status-cupom"></span>
+            </div>
+            <div class="content-utils">
+              <div class="sub-utils">
+                <input
+                  id="inpfrete"
+                  type="text"
+                  class="input-cep"
+                  placeholder="Cep"
+                />
+                <button type="button" class="button roxo m-">
+                  <span id="calcep" class="button__text">
+                    Calcular
+                  </span>
+                  <span class="button__icon">
+                    <i class="fas fa-truck"></i>
+                  </span>
+                </button>
+              </div>
+              <small>
+                *Somente números
+              </small>
+              <span id="status-frete"></span>
+            </div>
+            <div id="sedex" class="frete">
+              <div class="frete-title">
+                <i class="fas fa-truck"></i>
+                <span>
+                  FRETE:
+                </span>
+              </div>
+              <div class="main-frete">
+                <input type="radio" name="" id="radio-frete" />
+                <span id="tipo-frete">
+                  Sedex
+                </span>
+                <span id="prazo-frete"></span>
+                <span id="preco-frete"></span>
+              </div>
+            </div>
+          </div>
+          <div class="precos">
+            <div class="precos-header">
+              <div class="content-precos">
+                <div class="space">
+                  <span id="ctp-tittle">
+                    Subtotal
+                  </span>
+                </div>
+                <span class="calc-total" id="pr">
+                  R$ {{total}}
+                </span>
+              </div>
+              <div class="content-precos">
+                <div class="space">
+                  <span id="ctp-tittle">
+                    Frete
+                  </span>
+                </div>
+                <span class="calc-total" id="fr">
+                  R$ 0,00
+                </span>
+              </div>
+              <div class="content-precos">
+                <div class="space">
+                  <span id="ctp-tittle">
+                    Cupons
+                  </span>
+                </div>
+                <span class="calc-total" id="cup">
+                  R$ 0,00
+                </span>
+              </div>
+              <div class="linha" id="tot">
+              </div>
+              <div class="content-precos">
+                <div class="space">
+                  <span id="ctp-tittle">
+                    Total
+                  </span>
+                </div>
+                <span id="totg">
+                  R$ {{total}}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="checkout-btn">
+          <button id="mais-produtos" type="button" class="button red m- left">
+            <span class="button__text">
+              Escolher mais produtos
+            </span>
+            <span class="button__icon">
+              <i class="fas fa-cart-plus"></i>
+            </span>
+          </button>
+          <button id="fCompra" type="button" class="button green1 m- right">
+            <span class="button__text">
+              Finalizar Compra
+            </span>
+            <span class="button__icon">
+              <i class="fas fa-check"></i>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  {{/if}}
+</div>
+{{>rodape}}

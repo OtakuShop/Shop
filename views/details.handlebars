@@ -1,0 +1,83 @@
+{{>menu}}
+<!-- Product Details -->
+<section class="section product-detail">
+    <div class="details container-md">
+        <div class="left">
+            <div class="main">
+                <img src={{data.path}} alt="">
+            </div>
+        </div>
+        <div class="right">
+            <span>Home / {{data.class}}</span>
+            <h1>{{data.name}}</h1>
+            <div class="price">R$ {{data.price}}</div>
+            <form>
+                <div>
+                    {{#if data.isSize}}
+                    <select id="size-option">
+                        <option value="Select Size" selected disabled>Selecione o tamanho</option>
+                        {{#each data.size}}
+                        <option value={{@index}}>{{this}}</option>
+                        {{/each}}
+                    </select>
+                    <span><i class='bx bx-chevron-down'></i></span>
+                    {{/if}}
+
+                </div>
+            </form>
+
+            <form id="{{data.id}}" class="form">
+                <input id="product-qtde" type="text" value="1">
+                <button id="add-carrinho" type="button" class="addCart">Adicionar no Carrinho</button>
+            </form>
+            <h3>Detalhes do Produto</h3>
+            <p>
+                {{data.desc1}}<br>
+                {{data.desc2}}<br>
+                {{data.desc3}}<br>
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Related -->
+<section class="section featured">
+    <div class="top container">
+        <h1>Produtos Relacionados</h1>
+    </div>
+    <div class="product-center container">
+        {{#each data.semelhantes}}
+        <div class="product">
+            <div class="product-header">
+                <img src={{path}} alt="">
+                <span class="ocult">{{id}}</span>
+                <ul class="icons">
+                    {{#if isSize}}
+                    <a href="https://otakushop.herokuapp.com/adicionar-produto/{{id}}/1/{{defaultSize}}">
+                        <span>
+                            <i class="bx bx-shopping-bag"></i>
+                        </span>
+                    </a>
+                    {{else}}
+                    <a href="https://otakushop.herokuapp.com/adicionar-produto/{{id}}/1/0">
+                        <span>
+                            <i class="bx bx-shopping-bag"></i>
+                        </span>
+                    </a>
+                    {{/if}}
+                    <a href="https://otakushop.herokuapp.com/detalhes/{{id}}"><span><i class="bx bx-search"></i></span></a>
+                </ul>
+            </div>
+            <div class="product-footer">
+                <a href="#">
+                    <h3>{{name}}</h3>
+                </a>
+                <h4 class="price">R$ {{price}}</h4>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</section>
+
+<!-- Footer -->
+{{>rodape}}>

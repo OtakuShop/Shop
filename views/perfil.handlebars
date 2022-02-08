@@ -1,0 +1,127 @@
+<section class="seccion-perfil-usuario">
+    <div class="perfil-usuario-header">
+        <div class="perfil-usuario-portada">
+            <div class="perfil-usuario-avatar">
+                <input type="file" name="file" id="avatar-user">
+                <img id="image" name="imagem" src="{{perfil.path}}" alt="" />
+                <label class="boton-avatar" for="avatar-user">
+                    <i class="fas fa-camera"></i>
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="perfil-usuario-body">
+        <div class="redes-sociales">
+            <a href="https://otakushop.herokuapp.com/" class="boton-redes azul fas fa-home"></a>
+            <a href="https://otakushop.herokuapp.com/" class="boton-redes verde fas fa-shopping-bag"></a>
+            <a href="https://otakushop.herokuapp.com/" class="boton-redes rosa fas fa-shopping-cart"></a>
+            <button id="logout" class="boton-redes roxo fas fa-sign-out-alt"></button>
+        </div>
+    </div>
+    <div class="form">
+        <div class="form-panel one">
+            <div class="form-header">
+                <h1>
+                    Informações do Usuário
+                </h1>
+            </div>
+            <div class="form-content">
+                <form>
+                    <div class="form-group">
+                        <label for="nome">
+                            Nome Completo
+                        </label>
+                        <input class="input-perfil" type="text" id="nome" name="nome" value="{{perfil.nome}}" />
+                    </div>
+                    <div class="form-group">
+                        <label for="usuario">
+                            Usuário
+                        </label>
+                        <input value="{{perfil.usuario}}" class="input-perfil" type="text" id="usuario" name="usuario"
+                            readonly />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">
+                            E-mail
+                        </label>
+                        <input readonly value="{{perfil.email}}" class="input-perfil" type="text" id="email"
+                            name="email" />
+                    </div>
+                    <div class="form-group">
+                        <label for="username">
+                            Nascimento
+                        </label>
+                        <input class="input-perfil" value="{{perfil.nascimento}}" type="date" id="nascimento"
+                            name="nascimento" />
+                    </div>
+                    <div class="form-group">
+                        <label for="username">
+                            Telefone
+                        </label>
+                        <input id="telefone" value="{{perfil.telefone}}" class="input-perfil" type="text" id="telefone"
+                            name="telefone" maxlength="16" />
+                    </div>
+                    <div class="form-group">
+                        <label for="username">
+                            Cep
+                        </label>
+                        <input value="{{perfil.cep}}" type="text" id="cep" maxlength="9" name="cep"
+                            class="input-perfil" />
+                    </div>
+                </form>
+                <form>
+                    <div class="form-group">
+                        <label for="username">
+                            Estado
+                        </label>
+                        <input value="{{perfil.estado}}" type="text" id="estado" name="estado"
+                            class="auto input-perfil" />
+                    </div>
+                    <div class="form-group">
+                        <label for="username">
+                            Cidade
+                        </label>
+                        <input value="{{perfil.cidade}}" type="text" id="cidade" name="cidade"
+                            class="auto input-perfil" />
+                    </div>
+                    <div class="form-group">
+                        <label for="username">
+                            Bairro
+                        </label>
+                        <input type="text" value="{{perfil.bairro}}" id="bairro" name="bairro"
+                            class="auto input-perfil" />
+                    </div>
+                    <div class="form-group">
+                        <label for="username">
+                            Rua
+                        </label>
+                        <input type="text" id="rua" value="{{perfil.rua}}" name="rua" class="auto input-perfil" />
+                    </div>
+                    <div class="form-group">
+                        <label for="username">
+                            Número
+                        </label>
+                        <input type="text" id="numero" value="{{perfil.numero}}" name="numero" class="input-perfil" />
+                    </div>
+                    <div class="form-group">
+                        <label for="username">
+                            Complemento
+                        </label>
+                        <input type="text" id="complemento" value="{{perfil.complemento}}" name="complemento"
+                            class="input-perfil" />
+                    </div>
+                </form>
+            </div>
+            <div class="content-button">
+                <button id="save-perfil" type="button" class="button green1  right">
+                    <span class="button__text">
+                        Salvar Alterações
+                    </span>
+                    <span class="button__icon">
+                        <i class="fas fa-check"></i>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>

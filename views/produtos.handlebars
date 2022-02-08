@@ -1,0 +1,43 @@
+{{>menu}}
+<!-- All Products -->
+<section class="section all-products" id="products">
+    <div class="top container">
+        <h1>Todos os Produtos</h1>
+    </div>
+
+    <div class="product-center container">
+        {{#each produtos}}
+        <div class="product">
+            <div class="product-header">
+                <img src={{path}} alt="">
+                <ul class="icons">
+                    {{#if isSize}}
+                        <a href="https://otakushop.herokuapp.com/adicionar-produto/{{id}}/1/{{defaultSize}}"> <span><i class="bx bx-shopping-bag"></i></span></a>
+                    {{else}}
+                        <a href="https://otakushop.herokuapp.com/adicionar-produto/{{id}}/1/0"> <span><i class="bx bx-shopping-bag"></i></span></a>
+                    {{/if}}
+                    </a>
+                    <a href="https://otakushop.herokuapp.com/detalhes/{{id}}"><span><i class="bx bx-search"></i></span></a>
+                </ul>
+            </div>
+            <div class="product-footer">
+                <a href="#">
+                    <h3>{{name}}</h3>
+                </a>
+                <h4 class="price">R$ {{price}}</h4>
+            </div>
+        </div>
+        {{else}}
+
+        {{/each}}
+    </div>
+</section>
+
+<!-- Footer -->
+{{>rodape}}
+<!-- End Footer -->
+
+<!-- GSAP -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script> -->
+<!-- Custom Script -->
+<script src="/js/index.js"></script>
